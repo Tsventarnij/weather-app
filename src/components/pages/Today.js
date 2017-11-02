@@ -52,7 +52,9 @@ class Today extends Component {
         return (
             <div>
                 <h1>Weather in {city}</h1>
-                <Buttons active="today" city={w && w.id}/>
+                <Buttons
+                    // active="today"
+                    city={w && w.id}/>
                 <div className="row">
                     <div className="col-sm-4">
                         <h2><img src={icon} /> {temp} °C</h2>

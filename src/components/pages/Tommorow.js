@@ -17,7 +17,9 @@ class Tommorow extends Component {
         return (
             <div>
                 <h1>Weather in {w&&w.city&&w.city.name} on {Moment(w&&w.list&&w.list[0].dt_txt).format('D MMMM')}</h1>
-                <Buttons city={w&&w.city&&w.city.id} active="tommorow"/>
+                <Buttons city={w&&w.city&&w.city.id}
+                //         active="tommorow"
+                />
                 <table className="table">
                     <thead>
                     <tr><th>Time</th>

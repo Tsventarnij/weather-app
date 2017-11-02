@@ -6,12 +6,23 @@ class Buttons extends Component {
 
     render(){
         return (
-          <div>
-              {/*<Link to={"/"+this.props.city+"/yesterday"}>{this.props.active==="yesterday"?<Button primary>Yesterday</Button>:<Button>Yesterday</Button>}</Link>*/}
-              <Link to={"/"+this.props.city+"/today"}>{this.props.active==="today"?<Button primary>Today</Button>:<Button>Today</Button>}</Link>
-              <Link to={"/"+this.props.city+"/tommorow"}>{this.props.active==="tommorow"?<Button primary>Tommorow</Button>:<Button>Tommorow</Button>}</Link>
-              <Link to={"/"+this.props.city+"/week"}>{this.props.active==="week"?<Button primary>Week</Button>:<Button >Week</Button>}</Link>
-          </div>
+          <StyledBtnsBlock>
+              {/*<Link to={"/"+this.props.city+"/yesterday"}>*/}
+                  {/*{this.props.active==="yesterday"?<Button primary>Yesterday</Button>:<Button>Yesterday</Button>}*/}
+              {/*</Link>*/}
+
+              <Link activeClassName="active" to={"/"+this.props.city+"/today"}>
+                      <Button>Today</Button>
+              </Link>
+              <Link activeClassName="active" to={"/"+this.props.city+"/tommorow"}>
+                      <Button>Tommorow</Button>
+              </Link>
+
+              <Link activeClassName="active" to={"/"+this.props.city+"/week"}>
+                  <Button >Week</Button>
+              </Link>
+
+          </StyledBtnsBlock>
         );
 
     }
@@ -19,6 +30,15 @@ class Buttons extends Component {
 
 export default Buttons
 
+
+const StyledBtnsBlock = styled.div`
+    a.active{
+        button{
+            background: lightblue;
+            color: white;
+        }
+    }
+`;
 const Button = styled.button`
 	/* Adapt the colours based on primary prop */
 	background: ${props => props.primary ? 'lightblue' : 'white'};

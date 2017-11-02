@@ -57,7 +57,9 @@ class Week extends Component {
         return (
             <div>
                 <h1>Weather in {w&&w.city&&w.city.name} on week</h1>
-                <Buttons city={w&&w.city&&w.city.id} active="week"/>
+                <Buttons city={w&&w.city&&w.city.id}
+                //         active="week"
+                />
 
                 <table className="table table-striped">
                     <thead>
