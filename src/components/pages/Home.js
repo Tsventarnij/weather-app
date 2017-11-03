@@ -3,7 +3,9 @@ import {getCities} from '../../actions/cityAction'
 import {connect} from 'react-redux'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import {browserHistory} from 'react-router'
+import {browserHistory} from 'react-router';
+import ChartBar from './ChartBar'
+
 
 class Home extends Component {
 
@@ -16,8 +18,9 @@ class Home extends Component {
        browserHistory.push('/'+city.value+'/today');
     }
 
-    render() {
 
+
+    render() {
         let obj=this.props.city;
         let arr =[]
         if(obj) {
@@ -25,6 +28,18 @@ class Home extends Component {
                 return obj[key];
             });
         }
+        let arrLabel=[];
+        let arrData=[];
+
+        if(true) {
+            arr.forEach(item => {
+
+                arrLabel.push(item.name);
+                arrData.push(item.temp);
+
+            })
+        }
+
             return (
             <div>
                 <h1 >Home of the weather app</h1>
@@ -42,6 +57,9 @@ class Home extends Component {
                     onChange={this.updateValue}
 
                 />
+
+                <ChartBar label={arrLabel} data={arrData}/>
+
             </div>
         );
     }

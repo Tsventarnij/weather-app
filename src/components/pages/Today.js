@@ -9,7 +9,7 @@ import styled from 'styled-components'
 
 class Today extends Component {
 
-    componentWillMount() {
+    componentDidMount() {
 
         this.props.getTodayWeatherByID(this.props.params.cityID);
         this.props.getWeekWeatherByID(this.props.params.cityID);
@@ -21,8 +21,8 @@ class Today extends Component {
 
             this.props.getTodayWeatherByID(nextProps.params.cityID);
             this.props.getWeekWeatherByID(this.props.params.cityID);
-            this.forceUpdate()
-            return true;
+           // this.forceUpdate();
+            return false;
         }
         return true;
 
@@ -41,7 +41,11 @@ class Today extends Component {
         const wind=w && w.wind && w.wind.speed;
         let lon = w && w.coord && w.coord.lon;
         let lat = w && w.coord && w.coord.lat;
-        let simplemap = <SimpleMap lat={lat} lng={lon}/>
+        // let simplemap = null;
+// console.log('render',window.google);
+//         if(typeof(window.google) !== 'undefined' && typeof(window.google.maps) !== 'undefined'){
+            let simplemap = <SimpleMap lat={lat} lng={lon}/>
+        // }
         if(typeof(lat) !== 'number') {
             simplemap = " "
         }
@@ -99,7 +103,7 @@ class Today extends Component {
                 </div>
                 <div className="row">
                     <div className="col-sm-12">
-                         {simplemap}
+                        {simplemap}
 
                     </div>
                 </div>
